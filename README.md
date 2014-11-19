@@ -1,5 +1,7 @@
 # Wukong
 
+**NOTE: This is a divergent fork of https://github.com/infochimps-labs/wukong. The gem has been renamed to ul-wukong.**
+
 Wukong is a toolkit for rapid, agile development of data applications
 at any scale.
 
