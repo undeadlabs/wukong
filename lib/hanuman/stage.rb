@@ -6,7 +6,7 @@ module Hanuman
     
     def linkable_name(direction) ; self.label ; end
 
-    def add_link(type, other_stage)
+    def add_stage_link(type, other_stage)
       self.links << Hanuman::LinkFactory.connect(type, linkable_name(:in), other_stage.linkable_name(:out))
       graph.add_link(type, self, other_stage) if graph
     end
@@ -118,7 +118,7 @@ module Hanuman
           self.into(other_stage)
         end
       else
-        self.add_link(:simple, stage_or_stages.root)
+        self.add_stage_link(:simple, stage_or_stages.root)
       end
       stage_or_stages
     end
