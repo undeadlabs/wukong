@@ -4,7 +4,7 @@ gemspec
 
 group :development do
   gem 'rake',        '>= 0.9'
-  gem 'rspec',       '>= 2.8'
+  gem 'rspec',       '~> 2.8'
   gem 'spork',       '0.9.2'
   gem 'guard',       '>= 1.0'
   gem 'guard-rspec', '>= 0.6'
