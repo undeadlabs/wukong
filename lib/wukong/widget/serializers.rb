@@ -138,7 +138,7 @@ EOF
         if record.respond_to?(:from_tsv)
           obj = record.from_tsv
         else
-          obj = record.split(/\t/)
+          obj = record.split(/\t/, -1)
         end
         yield obj
       rescue => e        
