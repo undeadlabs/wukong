@@ -2,14 +2,14 @@
 require File.expand_path('../lib/wukong/version', __FILE__)
 
 Gem::Specification.new do |gem|
-  gem.name        = 'wukong'
-  gem.homepage    = 'https://github.com/infochimps-labs/wukong'
+  gem.name        = 'ul-wukong'
+  gem.homepage    = 'https://github.com/undeadlabs/wukong'
   gem.licenses    = ["Apache 2.0"]
   gem.email       = 'coders@infochimps.com'
   gem.authors     = ['Infochimps', 'Philip (flip) Kromer', 'Travis Dempsey']
   gem.version     = Wukong::VERSION
 
-  gem.summary     = 'Hadoop Streaming for Ruby. Wukong makes Hadoop so easy a chimpanzee can use it, yet handles terabyte-scale computation with ease.'
+  gem.summary     = 'Fork of Hadoop Streaming for Ruby. Wukong makes Hadoop so easy a chimpanzee can use it, yet handles terabyte-scale computation with ease.'
   gem.description = <<-EOF
   Treat your dataset like a:
 
