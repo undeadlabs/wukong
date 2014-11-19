@@ -77,6 +77,7 @@ EOF
       # @yield [size]
       # @yieldparam [Integer] size
       def finalize
+        return if key == :__first_group__
         if count
           yield [key, self.size]
         else
