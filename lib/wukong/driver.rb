@@ -47,7 +47,7 @@ module Wukong
   #
   # Driver instances are started by Runners which should delegate to
   # the `start` method driver class itself.
-  # 
+  #
   # @see Wukong::Local::StdioDriver for a complete example of a driver.
   # @see Wukong::Local::Runner for an example of how runners call drivers.
   module DriverMethods
@@ -79,7 +79,7 @@ module Wukong
     # @param settings [String] :to Serialize all output via the named serializer (json, tsv)
     # @param settings [String] :from Deserialize all input via the named deserializer (json, tsv)
     # @param settings [String] :as Recordize each input as instances of the given class
-    # 
+    #
     # @see #setup_dataflow
     def construct_dataflow(label, settings={})
       self.label    = label
@@ -180,6 +180,11 @@ module Wukong
     # @return [Wukong::Dataflow]
     def build_dataflow
       self.dataflow = dataflow_builder.build(settings)
+      require 'ap'
+      ap self.dataflow.directed_sort
+#      ap self.dataflow.label
+#      ap self.dataflow.links
+#      ap self.dataflow.stages
     end
 
     # Add the processor with the given `new_label` in front of this
@@ -208,7 +213,7 @@ module Wukong
     def wiring
       @wiring ||= Wiring.new(self, dataflow)
     end
-    
+
   end
 
 end

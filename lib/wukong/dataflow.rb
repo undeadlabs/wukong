@@ -9,10 +9,16 @@ module Wukong
       each_stage do |stage|
         stage.setup
       end
+      puts "-----"
+      ap stages
+      puts "-----"
+      ap root
+      puts "-----"
     end
 
     def process(record, &emit)
-      process_list(record, [root], &emit)
+      puts "DATAFLOW [#{label}] process: #{record.inspect}"
+      process_list(record, 1, [root], &emit)
     end
 
     def finalize(&emit)
@@ -26,14 +32,18 @@ module Wukong
     end
 
   private
-    def process_list(record, stages, &emit)
+    def process_list(record, level, stages, &emit)
+      indent = '  ' * level
+
       stages.each do |stage|
         children = descendents(stage)
         if children.empty?
+          puts "STAGE #{(indent + stage.label.to_s).ljust(30)} process: #{record.inspect}"
           stage.process(record, &emit)
         else
+          puts "STAGE #{(indent + stage.label.to_s).ljust(30)} process: #{record.inspect}"
           stage.process(record) do |out|
-            process_list(out, children, &emit)
+            process_list(out, level + 1, children, &emit)
           end
         end
       end
